@@ -24,9 +24,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Baci Chef <a name="about-project"></a>
+# 📖 <a name="about-project"></a>
 
-**If making it to the Guinness book of world records sounds exciting to you, then The Baci chef app provides a comprehensive solution for managing your secret recipes, ingredients, and inventory. You can save ingredients and track what you have on hand, create recipes, and generate a shopping list based on what you need for a recipe and even track your cooking time. Additionally, the app allows you to make your recipes public, facilitating easy sharing with others who may find them useful in their own cooking endeavors.**
+---
 
   <ul>
     <li>View Recipes for the logged in user </li>
