@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
-  
+
   private
 
   def after_sign_out_path_for(_use_or_resource_or_scope)
