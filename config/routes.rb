@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'users#index'
-  
-  mount LetterOpenerWeb::Engine, at: '/letter_opener'
 
   resources :users, only: [:index, :show] do
     resources :inventories, only: [:index, :new, :create, :show, :update, :destroy] 
