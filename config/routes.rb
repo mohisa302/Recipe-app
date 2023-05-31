@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   end 
   resources :inventories, only: [:index, :new, :create, :show, :update, :destroy] 
   resources :public_recipes, only: [:index]
+  
+  resources :public_recipes, only: [:index, :show]
 
 end
