@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # Defines the root path route ("/")
-  # root "articles#index"
-  
+
+  devise_for :users
   root 'users#index'
+  
+  mount LetterOpenerWeb::Engine, at: '/letter_opener'
+
   resources :users, only: [:index, :show] do
     resources :inventories, only: [:index, :new, :create, :show, :update, :destroy] 
     resources :recipes, only: [:index, :show, :new, :create, :update, :destroy]
@@ -12,5 +14,3 @@ Rails.application.routes.draw do
   resources :public_recipes, only: [:index]
 
 end
-
-  
