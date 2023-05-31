@@ -1,1 +1,15 @@
-<h1> index for piblic </h1>
+<div class='recipes_container'>
+<% @recipes.where(public: true).each do |recipe| %>
+  <div class='recipe_container'>
+  <div class="recipe_inform">
+    <h3>Name: <%= recipe.name %></h3>
+    <p>Description: <%= recipe.description %></p>
+    <p> Cooking time: <%= recipe.cooking_time %></p>
+    <p> Preparation time: <%= recipe.preparation_time %></p>
+    </div>
+    <div class='btn'>
+        <%= link_to "View Recipe", public_recipe_path(recipe) %>
+    </div>
+  </div>
+<% end %>
+</div>
