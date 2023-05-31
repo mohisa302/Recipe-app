@@ -75,6 +75,8 @@ end
 
 gem 'devise'
 
+gem 'cancancan'
+
 group :development do
   gem 'letter_opener_web'
 end

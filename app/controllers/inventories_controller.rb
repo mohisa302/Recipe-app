@@ -1,5 +1,31 @@
 class InventoriesController < ApplicationController
-  def index; end
+  load_and_authorize_resource
+  before_action :authenticate_user!
 
-  def show; end
+  def index
+    @current_user = current_user
+    @inventories = @current_user.inventories
+  end
+
+  def destroy
+    @inventory = Inventory.find(params[:id])
+    authorize! :destroy, @inventory
+
+    if @inventory.destroy
+      flash[:success] = 'Inventory deleted successfully.'
+    else
+      flash[:error] = 'Failed to delete inventory.'
+    end
+    redirect_to inventories_path
+  end
+
+  def show
+    @inventory = Inventory.find(params[:id])
+    @current_user = current_user
+    respond_to do |format|
+      format.html
+      format.xml { render xml: @post.comments }
+      format.json { render json: @post.comments }
+    end
+  end
 end

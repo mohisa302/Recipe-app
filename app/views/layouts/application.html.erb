@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'styles' %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -16,6 +17,11 @@
     <% end %>
     <% if alert %>
       <p class="alert"><%= alert %></p>
+    <% end %>
+    <% flash.each do |key, value| %>
+      <div class="flash <%= key %>">
+        <%= value %>
+      </div>
     <% end %>
     <%= yield %>
   </body>
