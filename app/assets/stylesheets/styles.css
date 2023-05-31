@@ -27,7 +27,7 @@
 }
 
 .inventory-card .delete-button button,
-.inventory-card .view-details-button a{
+.inventory-card .view-details-button a {
   padding: 8px 16px;
   border-radius: 4px;
   font-size: 14px;
@@ -40,8 +40,7 @@
   color: #fff;
 }
 
-.inventory-card
-.delete-button button:hover {
+.inventory-card .delete-button button:hover {
   background-color: #c0392b;
 }
 

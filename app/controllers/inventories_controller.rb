@@ -12,14 +12,12 @@ class InventoriesController < ApplicationController
     authorize! :destroy, @inventory
 
     if @inventory.destroy
-      flash[:success] = "Inventory deleted successfully."
-      redirect_to inventories_path
+      flash[:success] = 'Inventory deleted successfully.'
     else
-      flash[:error] = "Failed to delete inventory."
-      redirect_to inventories_path
+      flash[:error] = 'Failed to delete inventory.'
     end
+    redirect_to inventories_path
   end
-
 
   def show
     @inventory = Inventory.find(params[:id])
