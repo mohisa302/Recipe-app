@@ -1,1 +1,10 @@
-<h1> index for inventory </h1>
+<h1>list of inventories for a given user </h1>
+ <div class="post_list">
+    <% @inventories.each do |inventory| %>
+      <h3><%= inventory.name %></h3>
+    <% end %>
+  </div>
+<div class="button_holder">
+<button>Pagination</button>
+<button><%= link_to 'Back', :back %></button>
+</div>

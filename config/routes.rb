@@ -7,10 +7,9 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/letter_opener'
 
   resources :users, only: [:index, :show] do
-    resources :inventories, only: [:index, :new, :create, :show, :update, :destroy] 
     resources :recipes, only: [:index, :show, :new, :create, :update, :destroy]
   end 
-  
+  resources :inventories, only: [:index, :new, :create, :show, :update, :destroy] 
   resources :public_recipes, only: [:index]
 
 end
