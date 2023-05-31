@@ -2,17 +2,19 @@
   <% @recipes.each do |recipe| %>
     <div class='recipe_container'>
       <div class="recipe_inform">
-        <h3>Name: <%= recipe.name %></h3>
+       <div class="public_inform">
+        <p>Name: <%= recipe.name %></p>
         <p>by: <%= User.find(recipe.user_id).name %></p>
-        <p> Cooking time: <%= recipe.cooking_time %></p>
-        <p> Preparation time: <%= recipe.preparation_time %></p>
-
-        <ul>
+</div>
+          <% total_price = 0 %>
           <% recipe.foods.each do |food| %>
             <% rf = RecipeFood.find_by(recipe_id: recipe.id, food_id: food.id) %>
-            <li><%= food.name %> - Quantity: <%= rf.quantity %> - Price: $<%= food.price * rf.quantity %></li>
+            <% total_price += rf.quantity * food.price %>
           <% end %>
-        </ul>
+          <div>
+          <p>Total food items: <%= recipe.foods.count %> </p>
+          <p>Price: $<%= total_price %></p>
+          </div>
 
       </div>
       <div class='btn'>
