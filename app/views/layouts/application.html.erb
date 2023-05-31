@@ -17,6 +17,11 @@
     <% if alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
+    <% flash.each do |key, value| %>
+      <div class="flash <%= key %>">
+        <%= value %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

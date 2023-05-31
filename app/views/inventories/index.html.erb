@@ -3,6 +3,9 @@
     <% @inventories.each do |inventory| %>
       <h3><%= inventory.name %></h3>
       <p><%= inventory.description%></p>
+        <% if can? :destroy, inventory %>
+          <%= button_to "Delete", inventory_path(inventory), method: :delete %>
+        <% end %>
     <% end %>
   </div>
 <div class="button_holder">
