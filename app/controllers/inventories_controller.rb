@@ -21,5 +21,13 @@ class InventoriesController < ApplicationController
   end
 
 
-  def show; end
+  def show
+    @inventory = Inventory.find(params[:id])
+    @current_user = current_user
+    respond_to do |format|
+      format.html
+      format.xml { render xml: @post.comments }
+      format.json { render json: @post.comments }
+    end
+  end
 end

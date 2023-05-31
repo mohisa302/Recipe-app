@@ -3,6 +3,7 @@
     <% @inventories.each do |inventory| %>
       <h3><%= inventory.name %></h3>
       <p><%= inventory.description%></p>
+      <%= link_to "View Details", inventory_path(inventory), method: :get %>
         <% if can? :destroy, inventory %>
           <%= button_to "Delete", inventory_path(inventory), method: :delete %>
         <% end %>
