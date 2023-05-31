@@ -26,7 +26,7 @@ img {
   display: flex;
   align-items: center;
   background-color: #fc9400;
-  padding: 2%;
+  padding: 1%;
   font-size: 1rem;
   text-transform: uppercase;
   border-radius: 5px;
@@ -39,7 +39,7 @@ img {
   align-items: flex-end;
   justify-content: space-between;
   border: 2px solid black;
-  background-color: rgba(255, 228, 196, 0.5);
+  background-color: #89eefd;
   width: 70%;
 }
 
