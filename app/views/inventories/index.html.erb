@@ -2,6 +2,7 @@
  <div class="post_list">
     <% @inventories.each do |inventory| %>
       <h3><%= inventory.name %></h3>
+      <p><%= inventory.description%></p>
     <% end %>
   </div>
 <div class="button_holder">
