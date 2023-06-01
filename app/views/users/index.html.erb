@@ -1,1 +1,30 @@
 <h1> index for user </h1>
+
+
+<div class="sign_out_button">
+   <button>
+     <%= link_to 'Sign out',  destroy_user_session_path, method: :delete %>
+   </button>
+ </div>
+
+ <div>
+  <p class="current-user">logged as : <%= @user.name%></p>
+  <div class="main-menu">
+    <div class="main-menu-item">
+      <h3>Add food items</h3>
+    </div>
+    <div class="main-menu-item">
+      <h3>View your Recipes</h3>
+      <h3><%= link_to "Recipes", user_recipes_path(user_id:@user.id) %></h3>
+    </div>
+    <div class="main-menu-item">
+      <h3>See public Recipes</h3>
+      <h3><%= link_to "Public Recipes", public_recipes_path %></h3>
+    </div>
+    <div class="main-menu-item">
+      <h3>Create New Recipe</h3>
+      <h3><%= link_to "New Recipe", new_user_recipe_path(user_id:@user.id) %></h3>
+    </div>
+
+  </div>
+</div>
