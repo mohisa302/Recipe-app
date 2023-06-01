@@ -188,3 +188,121 @@
   .new-recipe-form button[type=submit]:hover {
     background-color: #c9302c;
   }
+
+
+.recipe-div {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.recipe-div h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.recipe-div h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.recipe-div p.recipe-detail {
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.recipe-div table.ingredients-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.recipe-div table.ingredients-table th,
+.recipe-div table.ingredients-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.recipe-div table.ingredients-table th {
+  background-color: #f2f2f2;
+}
+
+.recipe-div table.ingredients-table td:last-child {
+  text-align: center;
+}
+
+.recipe-div .toggle {
+  margin-top: 20px;
+}
+
+.recipe-div .toggle h4 {
+  font-size: 16px;
+}
+
+.recipe-div .toggle label.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.recipe-div .toggle label.switch input[type="checkbox"] {
+  display: none;
+}
+
+.recipe-div .toggle label.switch span.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.recipe-div .toggle label.switch span.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.recipe-div .toggle label.switch input:checked + span.slider {
+  background-color: #2196F3;
+}
+
+.recipe-div .toggle label.switch input:focus + span.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.recipe-div .toggle label.switch input:checked + span.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.recipe-div .recipe-show-btn-group {
+  margin-top: 20px;
+}
+
+.recipe-div .recipe-show-btn-group button {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.recipe-div .recipe-show-btn-group button:hover {
+  background-color: #0c7cd5;
+}
