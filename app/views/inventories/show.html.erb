@@ -1,2 +1,22 @@
-<h1> Name: <%= @inventory.name %></h1>
-<p> <%= @inventory.description %></p>
+<h1 class="food-heading"><%= @inventory.name %></h1>
+<button id="openModalButton" class="add-food-btn">Add Food</button>
+<%= render 'shared/modal' %>
+<hr/>
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.price%></td>
+        <td><button>Remove</button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

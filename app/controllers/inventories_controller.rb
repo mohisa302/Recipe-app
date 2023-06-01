@@ -21,6 +21,7 @@ class InventoriesController < ApplicationController
 
   def show
     @inventory = Inventory.find(params[:id])
+    @foods = Food.all
     @current_user = current_user
     respond_to do |format|
       format.html
