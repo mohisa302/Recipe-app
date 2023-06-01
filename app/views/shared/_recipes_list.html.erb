@@ -1,9 +1,6 @@
 <div class="recipes-container">
   <% if recipes.empty? %>
   <h2>Please add some recipes</h2>
-  <button class="page-btn">
-        <%= link_to 'Create New Recipe',  new_user_recipe_path(user_id:user.id), style: 'color: black; text-decoration: none;' %>
-    </button>
   <% else %>
   <ul class="recipes-list">
     <% recipes.each do |recipe|%>
