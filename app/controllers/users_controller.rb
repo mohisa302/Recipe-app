@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   def index
-    @users = User.all
+    @user = current_user
   end
 
   def show
@@ -15,6 +16,11 @@ class UsersController < ApplicationController
 
   def sign_out_and_redirect
     sign_out current_user
-    redirect_to new_user_session_path
+    redirect_to public_recipes_path
+  end
+
+  def find_user
+    @user = User.find_by(id: params[:id])
+    redirect_to users_path, alert: 'User not found' unless @user
   end
 end
