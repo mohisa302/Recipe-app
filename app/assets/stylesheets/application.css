@@ -344,3 +344,61 @@ button {
 .recipe-div .recipe-show-btn-group button:hover {
   background-color: #0c7cd5;
 }
+
+.ing-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+.ing-form-container h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.ing-form-container .ingredient_form {
+  margin-bottom: 20px;
+}
+
+.ing-form-container .ingredient_form label {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.ing-form-container .ingredient_form select,
+.ing-form-container .ingredient_form input[type="number"] {
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.ing-form-container .ingredient_form input[type="submit"] {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.ing-form-container .ingredient_form input[type="submit"]:hover {
+  background-color: #0c7cd5;
+}
+
+.ing-form-container p {
+  font-size: 16px;
+  text-align: center;
+}
+
+.ing-form-container p a {
+  color: #2196F3;
+}
+
+.ing-form-container p a:hover {
+  color: #0c7cd5;
+}
