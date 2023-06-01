@@ -1,0 +1,24 @@
+<div class="shop-list-container">
+  <h1>Shopping List</h1>
+  <h2>You need the following items</h2>
+  <div>
+    <table class="shop-list-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price $</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @shopping_list.each do |item| %>
+        <tr>
+          <td><%= item[:name]%></td>
+          <td><%= item[:qty]%></td>
+          <td><%= item[:price]%></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

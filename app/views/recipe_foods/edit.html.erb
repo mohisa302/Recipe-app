@@ -1,0 +1,13 @@
+<div class="ing-form-container">
+  <h1>Modify Ingredient</h1>
+  <div class="ingredient_form">
+    <%= form_with url:
+    user_recipe_recipe_food_path(user_id:@current_user.id,recipe_id:@recipe.id),
+    method: :patch ,scope: :update_recipe_food,local:true  do |form| %> 
+    <p>Item : <%=  @recipe_food.food.name %></p>
+    <%= form.label :qty, "Quantity",required:true%> 
+    <%= form.number_field :qty, min:0  %>
+    <%= form.submit "Update item" %>
+    <% end %>
+  </div>
+</div>
