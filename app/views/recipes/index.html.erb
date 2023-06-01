@@ -1,1 +1,4 @@
-<h1> index for recipe </h1>
+<section class="recipes-section">
+  <h1>Your Recipes</h1>
+  <%= render 'shared/recipes_list', recipes:@recipes,user: @user %>
+</section>
