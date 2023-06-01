@@ -29,4 +29,23 @@ class InventoriesController < ApplicationController
       format.json { render json: @post.comments }
     end
   end
+
+  # def create
+  #   @inventory = Inventory.find(params[:id])
+  #   @food = Food.find(params[:food_id])
+  #   quantity = params[:quantity].to_i
+  #   @inventory_food = InventoryFood.new(inventory_food_params)
+    
+  #   if @inventory_food.save
+  #     flash[:success] = "Food added to inventory successfully!"
+  #     redirect_to @inventory
+  #     else
+  #       flash[:error] = "Failed to add food to inventory."
+  #       redirect_to @inventory # or render the 'new' view if you have one
+  #   end
+  # end
+
+  def inventory_food_params
+    params.require(:inventory_food).permit(:food_id, :quantity)
+  end
 end
