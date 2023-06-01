@@ -1,0 +1,21 @@
+<div class="new-recipe-form-container">
+  <h1>Add new recipe</h1>
+  <div class="new-recipe-form">
+    <%= form_with url: user_recipes_path(user_id:@user.id),
+  method: :post, scope: :new_recipe, local:true do |f| %>
+  <%= f.label :name, "Recipe Name" %>
+  <%= f.text_field :name, require:true %>
+  <%= f.label :preparation_time, "Preparation Time" %>
+  <%= f.number_field :preparation_time, step:0.25, require:true  %>
+  <%= f.label :cooking_time, "Cooking Time" %>
+  <%= f.number_field :cooking_time, step:0.25, require:true  %>
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description, size: '50X7', require:true %>
+  <div>
+    <%= f.check_box :public %>
+    <%= label :public, "Make Recipe public?" %>
+  </div>
+  <%= f.submit%>
+  <% end %>
+  </div>
+</div>

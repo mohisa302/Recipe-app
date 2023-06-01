@@ -1,24 +1,4 @@
-<div class="recipes-container">
-<h1>Your Recipes</h1>
-<% if @recipes.empty? %>
-<h2>Please add some recipes</h2>
-<% else %>
-<ul class="recipes-list">
-  <% @recipes.each do |recipe|%>
-  <li class="recipes-list-item">
-    <%= link_to user_recipe_path(user_id: @user.id,id: @recipe.id) do %>
-    <div class="recipe-items-details">
-        <h2><%= recipe.name%></h2>
-        <p><%= recipe.description %></p>
-    </div>
-    <% end %> 
-    <% if @recipe.owner?(@user) %>
-    <%= link_to user_recipe_path(user_id:@user.id,id:@recipe.id), data: {turbo_method: :delete} do %>
-    <button>Remove</button>
-    <% end %>
-    <% end %>
-  </li>
-  <% end %> <% end %>
-</ul>
-</div>
-</div>
+<section class="recipes-section">
+  <h1>Your Recipes</h1>
+  <%= render 'shared/recipes_list', recipes:@recipes,user: @user %>
+</section>
