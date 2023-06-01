@@ -6,7 +6,7 @@
  </div>
 
  <div>
-  
+ <p class="current-user"><%= @user.name%></p>
   <div class="main-menu">
     <div class="main-menu-item">
       <h3>Add food items</h3>
@@ -21,9 +21,12 @@
       <h3><%= link_to "Public Recipes", public_recipes_path %></h3>
     </div>
     <div class="main-menu-item">
-      <h3>Create New Recipe</h3>
-      <h3><%= link_to "New Recipe", new_user_recipe_path(user_id:@user.id) %></h3>
+      <h3> See Inventories</h3>
+      <p> add your link to inventory here </p>
     </div>
-
+    <div class="main-menu-item">
+    <h3> General Shopping list</h3>
+    <p> add your link to shopping list here </p>
+  </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="recipes-container">
+
   <% if recipes.empty? %>
   <h2>Please add some recipes</h2>
   <% else %>
@@ -22,4 +22,3 @@
   <button class="page-btn">
         <%= link_to 'Create New Recipes', new_user_recipe_path(user_id:user.id), style: 'color: black; text-decoration: none;' %>
     </button>
-</div>
