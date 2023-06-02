@@ -21,11 +21,17 @@ class InventoriesController < ApplicationController
 
   def show
     @inventory = Inventory.find(params[:id])
+    @foods = Food.all
+    @inventory_foods = InventoryFood.where(inventory_id: @inventory.id)
     @current_user = current_user
     respond_to do |format|
       format.html
       format.xml { render xml: @post.comments }
       format.json { render json: @post.comments }
     end
+  end
+
+  def inventory_food_params
+    params.require(:inventory_food).permit(:food_id, :quantity)
   end
 end

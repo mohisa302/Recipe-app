@@ -18,11 +18,13 @@
     <% if alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
-    <% flash.each do |key, value| %>
-      <div class="flash <%= key %>">
-        <%= value %>
-      </div>
-    <% end %>
+    <div class="flash-messages">
+      <% flash.each do |type, message| %>
+        <div class="flash-<%= type %>">
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
