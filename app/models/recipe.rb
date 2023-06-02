@@ -9,6 +9,7 @@ class Recipe < ApplicationRecord
   def total_food_items
     recipe_foods.count
   end
+
   def total_price
     total = 0
     recipe_foods.includes([:food]).each do |item|
@@ -16,6 +17,7 @@ class Recipe < ApplicationRecord
     end
     total
   end
+
   def owner?(user)
     self.user == user
   end

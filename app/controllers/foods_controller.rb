@@ -5,9 +5,11 @@ class FoodsController < ApplicationController
   def index
     @all_foods = Food.where(user_id: current_user.id)
   end
+
   def new
     @food = Food.new
   end
+
   def create
     @food = Food.new(food_params)
     @food.user_id = current_user.id
@@ -17,6 +19,7 @@ class FoodsController < ApplicationController
       render :new
     end
   end
+
   def destroy
     @food = Food.find(params[:id])
     if @food.destroy
@@ -25,7 +28,9 @@ class FoodsController < ApplicationController
       flash[:alert] = 'error deleting food item'
     end
   end
+
   private
+
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
   end
