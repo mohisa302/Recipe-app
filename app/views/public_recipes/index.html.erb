@@ -12,7 +12,7 @@
             <% total_price += rf.quantity * food.price %>
           <% end %>
           <div>
-          <p>Total food items: <%= recipe.foods.sum(&:quantity) %> </p>
+          <p>Total food items: <%= recipe.sum(&:quantity) %> </p>
           <p>Price: $<%= total_price %></p>
           </div>
 

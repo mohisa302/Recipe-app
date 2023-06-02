@@ -1,30 +1,33 @@
 <div>
-<div>
-<p>Amount of food to buy: <%= total_food_items %></p>
-<p>Total value of food needed: <%=total_food_price %></p>
-</div>
-<div>
-<%= link_to "Add Food Item", new_inventory_food_path(@inventory) %>
-<%= link_to "Back to Inventory List", inventories_path %>
-</div>
+  <div>
+    <p>Amount of food to buy: <%= @total_food_items %></p>
+    <p>Total value of food needed: <%= number_to_currency(@total_food_price, unit: "$") %></p>
+  </div>
+  <div>
+    <% if @inventory %>
+      <%= link_to "View Inventory", inventory_path(@inventory) %>
+    <% end %>
+    |
+    <% if @recipe_foods.present? %>
+      <%= link_to "View Recipe", user_recipe_path(current_user, @recipe_foods.first.recipe) %>
+    <% end %>
+  </div>
 </div>
 <table>
   <thead>
     <tr>
       <th>Food</th>
       <th>Quantity</th>
-      <th>Price</th>
+      <th>Total Price</th>
     </tr>
   </thead>
-  <tbody>
-    <% @inventory_foods.group_by(&:food_id).each do |food_id, inventory_foods| %>
-      <% food = Food.find(food_id) %>
+<tbody>
+    <% @shopping_list_foods.each do |shopping_list_food| %>
       <tr>
-        <td><%= food.name %></td>
-        <td><%= inventory_foods.sum(&:quantity) %> <%= food.measurement_unit %></td>
-        <td>$<%= inventory_foods.sum { |f| f.quantity * food.price } %></td>
+        <td><%= shopping_list_food.food.name %></td>
+       <td><%= shopping_list_food.quantity %> <%= shopping_list_food.food.measurement_unit %></td>
+       <td>$<%= number_to_currency((shopping_list_food.quantity * shopping_list_food.food.price), unit: "") %></td>
       </tr>
     <% end %>
-  </tbody>
+</tbody>
 </table>
-
