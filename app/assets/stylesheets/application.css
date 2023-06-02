@@ -98,8 +98,8 @@ h1 {
   margin-bottom: 5px;
 }
 
-.new-recipe-form input[type="text"],
-.new-recipe-form input[type="number"],
+.new-recipe-form input[type='text'],
+.new-recipe-form input[type='number'],
 .new-recipe-form textarea {
   width: 100%;
   padding: 10px;
@@ -109,11 +109,11 @@ h1 {
   margin-bottom: 20px;
 }
 
-.new-recipe-form input[type="checkbox"] {
+.new-recipe-form input[type='checkbox'] {
   margin-right: 10px;
 }
 
-.new-recipe-form input[type="submit"] {
+.new-recipe-form input[type='submit'] {
   background-color: #4caf50;
   color: #fff;
   padding: 10px;
@@ -122,7 +122,7 @@ h1 {
   cursor: pointer;
 }
 
-.actions input[type="submit"] {
+.actions input[type='submit'] {
   background-color: #2196f3;
   color: white;
   border: none;
@@ -131,7 +131,7 @@ h1 {
   cursor: pointer;
 }
 
-.new-recipe-form input[type="submit"]:hover {
+.new-recipe-form input[type='submit']:hover {
   background-color: #3e8e41;
 }
 
@@ -164,10 +164,10 @@ h2 {
   text-align: center;
 }
 
-.field input[type="text"],
-.field input[type="name"],
-.field input[type="email"],
-.field input[type="password"] {
+.field input[type='text'],
+.field input[type='name'],
+.field input[type='email'],
+.field input[type='password'] {
   width: 60%;
   padding: 10px;
   border-radius: 5px;
@@ -258,7 +258,6 @@ button {
   padding: 0;
 }
 
-.recipes-list-item {
 .recipe_inform {
   padding: 4%;
   font-weight: bolder;
@@ -272,7 +271,6 @@ button {
   padding: 10px;
 }
 
-.recipe-items-details {
 a {
   text-decoration: none;
   color: white;
@@ -299,8 +297,8 @@ a:visited {
   font-size: 16px;
 }
 
-.new-recipe-form input[type=text],
-.new-recipe-form input[type=number],
+.new-recipe-form input[type='text'],
+.new-recipe-form input[type='number'],
 .new-recipe-form textarea {
   width: 100%;
   padding: 10px;
@@ -319,11 +317,11 @@ a:visited {
   margin-bottom: 20px;
 }
 
-.new-recipe-form input[type=checkbox] {
+.new-recipe-form input[type='checkbox'] {
   margin-right: 10px;
 }
 
-.new-recipe-form button[type=submit] {
+.new-recipe-form button[type='submit'] {
   background-color: #d9534f;
   color: #fff;
   border: none;
@@ -331,7 +329,7 @@ a:visited {
   padding: 5px 10px;
 }
 
-.new-recipe-form button[type=submit]:hover {
+.new-recipe-form button[type='submit']:hover {
   background-color: #c9302c;
 }
 
@@ -399,7 +397,7 @@ th {
   height: 34px;
 }
 
-.recipe-div .toggle label.switch input[type="checkbox"] {
+.recipe-div .toggle label.switch input[type='checkbox'] {
   display: none;
 }
 
@@ -417,7 +415,7 @@ th {
 
 .recipe-div .toggle label.switch span.slider::before {
   position: absolute;
-  content: "";
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
@@ -483,14 +481,14 @@ th {
 }
 
 .ing-form-container .ingredient_form select,
-.ing-form-container .ingredient_form input[type="number"] {
+.ing-form-container .ingredient_form input[type='number'] {
   width: 90%;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-.ing-form-container .ingredient_form input[type="submit"] {
+.ing-form-container .ingredient_form input[type='submit'] {
   background-color: #2196f3;
   color: white;
   border: none;
@@ -500,7 +498,7 @@ th {
   cursor: pointer;
 }
 
-.ing-form-container .ingredient_form input[type="submit"]:hover {
+.ing-form-container .ingredient_form input[type='submit']:hover {
   background-color: #0c7cd5;
 }
 
