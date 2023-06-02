@@ -1,0 +1,33 @@
+<section class="container">
+  <div class="main">
+    <a href="<%=request.path%>/new">
+    <%= link_to new_user_food_path(), class: "btn" do %>
+    <button class="form-button-primary"> Add food </button>
+    <% end %>
+    </a>
+  </div>
+  <table class="custom-table">
+  <thead>
+    <tr>
+      <th scope="col" class="scope-col">Food</th>
+      <th scope="col" class="scope-col">Measurement Unit</th>
+      <th scope="col" class="scope-col">Unit Price</th>
+      <th scope="col" class="scope-col">Qty</th>
+      <th scope="col" class="scope-col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @all_foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.measurement_unit %></td>
+        <td>$<%= food.price %></td>
+        <td><%= food.quantity %></td>
+        <td>
+          <%= button_to "Delete", user_food_path(id: food.id), method: :delete, data: { confirm: "Are you sure you want to delete this post?" }, class: "btn" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>

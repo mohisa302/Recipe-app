@@ -1,1 +1,72 @@
-<h1> show for recipe </h1>
+<section class="recipe-div">
+  <h1>Recipe <%= @recipe.name %></h1>
+  <h3>Preparation Time: <%= @recipe.preparation_time %></h3>
+  <h3>Cooking Time: 
+    <%= @recipe.cooking_time %>
+  </h3>
+  <% if @recipe.owner?(current_user) %>
+  <div class="toggle">
+    <h4>
+      <%if @recipe.public == true %>
+      Public
+      <% else %>
+      Private
+      <% end %>
+    </h4>
+    <%= form_with  url: 
+    user_recipe_path(user_id: @user.id,id:@recipe.id),
+    method: :patch, scope: :update_recipe,local:true do |f|
+    %>
+    <label class="switch">
+      <% if @recipe.public %>
+      <%= f.check_box :public , checked: true,  onchange: 'this.form.submit();' %>
+      <% else %>
+      <%= f.check_box :public , checked: false, onchange: 'this.form.submit();'  %>
+      <% end %>
+      <span class="slider round"></span>
+    </label>
+    <% end %>
+  </div>
+  <% end %>
+  
+  <p class="recipe-detail"><%= @recipe.description %></p>
+  <% if @recipe.owner?(current_user) %>
+  <div class="recipe-show-btn-group">
+    <%= link_to user_shopping_lists_path(user_id:@user.id) do %>
+    <button>Generate shopping list</button>
+    <% end %>
+    <%= link_to new_user_recipe_recipe_food_path(user_id:@user.id,recipe_id:@recipe.id) do %>
+    <button>Add ingredient</button>
+    <% end %>
+  </div>
+  <% end %>
+  <div>
+    <table class="ingredients-table">
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @recipe_foods.each do |food| %>
+        <tr>
+          <td><%= food.food.name %></td>
+          <td><%= food.quantity %></td>
+          <td><%= food.quantity * food.food.price %></td>
+          <td>
+          <% if @recipe.owner?(current_user) %>
+            <div class="ing-table-btn-group">
+              <%= link_to "Modify", edit_user_recipe_recipe_food_path(user_id:@user.id,recipe_id:@recipe.id,id:food.id) %>
+              <%= link_to "Delete", user_recipe_recipe_food_path(user_id:@user.id,recipe_id:@recipe.id,id:food.id), data: {turbo_method: :delete} %>
+            </div>
+          <% end %>  
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
