@@ -1,10 +1,6 @@
 class ShoppingListController < ApplicationController
   def make_list
-    recipe = Recipe.find(params[:recipe_id])
-    #find all the food which belong to this recipe
-    @recipe_foods = RecipeFood.select(:food_id, "SUM(quantity) as quantity").where(recipe_id: params[:recipe_id]).group(:food_id)
-    
-    @inventory = Inventory.find(params[:inventory_id])
+    @recipe_foods = recipe_foods(params[:recipe_id])
     @inventory_foods = InventoryFood.where(inventory_id: params[:inventory_id])
     @shopping_list_foods = []
     @total_food_price = 0
@@ -16,7 +12,7 @@ class ShoppingListController < ApplicationController
           recipe_food.quantity = quantity_needed
           @shopping_list_foods.push(recipe_food)
           @total_food_price += recipe_food.quantity * Food.find_by(id: recipe_food.food_id).price
-        end      
+        end
       else
         @shopping_list_foods.push(recipe_food)
         @total_food_price += recipe_food.quantity * Food.find_by(id: recipe_food.food_id).price
@@ -32,5 +28,14 @@ class ShoppingListController < ApplicationController
 
   def generate_shopping_list
     redirect_to make_list_path(recipe_id: params[:recipe_id], inventory_id: params[:inventory_id])
+  end
+
+  private
+
+  def recipe_foods(recipe_id)
+    RecipeFood
+      .select(:food_id, 'SUM(quantity) as quantity')
+      .where(recipe_id:)
+      .group(:food_id)
   end
 end
