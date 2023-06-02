@@ -11,10 +11,10 @@
     </tr>
   </thead>
   <tbody>
-    <% @foods.each do |food| %>
+    <% @inventory_foods.each do |inventory_food| %>
       <tr>
-        <td><%= food.name %></td>
-        <td><%= food.price%></td>
+        <td><%= inventory_food.food.name %></td>
+        <td><%= inventory_food.quantity %></td>
         <td><button>Remove</button></td>
       </tr>
     <% end %>
