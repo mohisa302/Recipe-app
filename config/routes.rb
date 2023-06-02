@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/inventory_foods', to: 'inventory_foods#create', as: 'create_inventory_food'
   delete '/inventory_foods', to: 'inventory_foods#destory', as: 'delete_inventory_food'
 
+  post '/inventories', to: 'inventories#create', as: 'create_inventory'
+
   
   mount LetterOpenerWeb::Engine, at: '/letter_opener'
 

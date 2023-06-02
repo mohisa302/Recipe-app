@@ -7,6 +7,20 @@ class InventoriesController < ApplicationController
     @inventories = @current_user.inventories
   end
 
+  def new
+    @user = current_user
+  end
+
+  def create
+    inventory = Inventory.new(inventory_params)
+    if inventory.save
+      flash[:success] = 'Inventory created successfully'
+    else
+      flash[:error] = inventory.errors.full_messages.join('. ')
+    end
+    redirect_to inventories_path
+  end
+
   def destroy
     @inventory = Inventory.find(params[:id])
     authorize! :destroy, @inventory
@@ -33,5 +47,9 @@ class InventoriesController < ApplicationController
 
   def inventory_food_params
     params.require(:inventory_food).permit(:food_id, :quantity)
+  end
+
+ def inventory_params
+    params.require(:new_inventory).permit(:user_id, :name, :description)
   end
 end
