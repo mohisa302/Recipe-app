@@ -146,3 +146,36 @@ tbody tr:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
+.flash-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.flash-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Flash message types */
+.flash-success {
+  background-color: #4caf50;
+  color: #ffffff;
+}
+
+.flash-error {
+  background-color: #f44336;
+  color: #ffffff;
+}
+
+.flash-notice {
+  background-color: #2196f3;
+  color: #ffffff;
+}

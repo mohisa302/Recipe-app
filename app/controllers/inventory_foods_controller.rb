@@ -3,13 +3,11 @@ class InventoryFoodsController < ApplicationController
     @inventory_food = InventoryFood.new(inventory_food_params)
 
     if @inventory_food.save
-      @inventory = Inventory.find(params[:id])
       flash[:success] = "Food added to inventory successfully!"
-      redirect_to @inventory
+      redirect_to request.referrer
     else
-      @inventory = Inventory.find(params[:id])
       flash[:error] = "Failed to add food to inventory."
-      redirect_to @inventory
+      redirect_to request.referrer
     end
   end
 
