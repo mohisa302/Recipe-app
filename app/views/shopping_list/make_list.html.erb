@@ -1,0 +1,28 @@
+<div>
+  <div>
+    <p>Amount of food to buy: <%= @total_food_items %></p>
+    <p>Total value of food needed: <%= number_to_currency(@total_food_price, unit: "$") %></p>
+  </div>
+  <div>
+
+  </div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Total Price</th>
+    </tr>
+  </thead>
+<tbody>
+    <% @shopping_list_foods.each do |shopping_list_food| %>
+      <tr>
+        <td><%= shopping_list_food.food.name %></td>
+       <td><%= shopping_list_food.quantity %> <%= shopping_list_food.food.measurement_unit %></td>
+       <td>$<%= number_to_currency((shopping_list_food.quantity * shopping_list_food.food.price), unit: "") %></td>
+      </tr>
+    <% end %>
+</tbody>
+</table>
+<a href="<%= users_path %>"><button>Return to Users</button></a>
