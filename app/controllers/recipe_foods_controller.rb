@@ -4,7 +4,6 @@ class RecipeFoodsController < ApplicationController
     @current_user = current_user
     @recipe = Recipe.find(params[:recipe_id])
   end
-
   def create
     user = current_user
     recipe = Recipe.find(params[:recipe_id])
@@ -20,13 +19,11 @@ class RecipeFoodsController < ApplicationController
     end
     redirect_to user_recipe_path(user_id: user.id, id: recipe.id)
   end
-
   def edit
     @current_user = current_user
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = RecipeFood.find(params[:id])
   end
-
   def update
     @recipe_item = RecipeFood.find(params[:id])
     if @recipe_item.update_column(:quantity, update_food_params['qty'])
@@ -36,7 +33,6 @@ class RecipeFoodsController < ApplicationController
       flash[:alert] = 'error updating recipe food'
     end
   end
-
   def destroy
     recipe_food = RecipeFood.find(params[:id])
     if recipe_food.destroy
@@ -46,13 +42,10 @@ class RecipeFoodsController < ApplicationController
       flash[:alert] = 'error deleting recipe food'
     end
   end
-
   private
-
   def recipe_food_params
     params.require(:new_recipe_food).permit(:food_id, :qty)
   end
-
   def update_food_params
     params.require(:update_recipe_food).permit(:qty)
   end
