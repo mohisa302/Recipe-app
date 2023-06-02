@@ -2,7 +2,7 @@ class ShoppingListController < ApplicationController
   def make_list
     recipe = Recipe.find(params[:recipe_id])
     #find all the food which belong to this recipe
-    @recipe_foods = RecipeFood.where(recipe_id: params[:inventory_id])
+    @recipe_foods = RecipeFood.where(recipe_id: params[:recipe_id])
     
     @inventory = Inventory.find(params[:inventory_id])
     @inventory_foods = InventoryFood.where(inventory_id: params[:inventory_id])
@@ -23,5 +23,14 @@ class ShoppingListController < ApplicationController
       end
     end
     @total_food_items = @shopping_list_foods.sum(&:quantity)
+  end
+
+  def new
+    @inventories = current_user.inventories.all
+    @recipe_id = params[:recipe_id]
+  end
+
+  def generate_shopping_list
+    redirect_to make_list_path(recipe_id: params[:recipe_id], inventory_id: params[:inventory_id])
   end
 end

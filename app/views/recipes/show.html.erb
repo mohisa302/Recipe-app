@@ -28,18 +28,20 @@
     <% end %>
   </div>
   <% end %>
-  
+
   <p class="recipe-detail"><%= @recipe.description %></p>
-  <% if @recipe.owner?(current_user) %>
+
+<% if @recipe.owner?(current_user) %>
   <div class="recipe-show-btn-group">
-    <%= link_to user_shopping_lists_path(user_id:@user.id) do %>
-    <button>Generate shopping list</button>
+    <%= link_to new_user_recipe_shopping_list_path(user_id: @user.id, recipe_id: @recipe.id) do %>
+        <button>Generate shopping list</button>
     <% end %>
     <%= link_to new_user_recipe_recipe_food_path(user_id:@user.id,recipe_id:@recipe.id) do %>
     <button>Add ingredient</button>
     <% end %>
   </div>
   <% end %>
+
   <div>
     <table class="ingredients-table">
       <thead>
@@ -59,15 +61,16 @@
           <td>
           <% if @recipe.owner?(current_user) %>
             <div class="ing-table-btn-group">
-              <%= link_to "Modify", edit_user_recipe_recipe_food_path(user_id:@user.id,recipe_id:@recipe.id,id:food.id) %>
-              <%= link_to "Delete", user_recipe_recipe_food_path(user_id:@user.id,recipe_id:@recipe.id,id:food.id), data: {turbo_method: :delete} %>
+              <%= link_to "Modify", edit_user_recipe_recipe_food_path(user_id: @user.id, recipe_id: @recipe.id, id: food.id) %>
+              <%= link_to "Delete", user_recipe_recipe_food_path(user_id: @user.id, recipe_id: @recipe.id, id: food.id), data: { turbo_method: :delete } %>
             </div>
           <% end %>  
           </td>
         </tr>
-        <% end %>
+      <% end %>
       </tbody>
     </table>
   </div>
 </section>
+
 <a href="<%= users_path %>"><button>Return to Users</button></a>

@@ -4,13 +4,7 @@
     <p>Total value of food needed: <%= number_to_currency(@total_food_price, unit: "$") %></p>
   </div>
   <div>
-    <% if @inventory %>
-      <%= link_to "View Inventory", inventory_path(@inventory) %>
-    <% end %>
-    |
-    <% if @recipe_foods.present? %>
-      <%= link_to "View Recipe", user_recipe_path(current_user, @recipe_foods.first.recipe) %>
-    <% end %>
+
   </div>
 </div>
 <table>
@@ -31,3 +25,4 @@
     <% end %>
 </tbody>
 </table>
+<a href="<%= users_path %>"><button>Return to Users</button></a>
