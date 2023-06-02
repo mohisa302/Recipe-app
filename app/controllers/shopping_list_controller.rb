@@ -2,7 +2,7 @@ class ShoppingListController < ApplicationController
   def make_list
     recipe = Recipe.find(params[:recipe_id])
     #find all the food which belong to this recipe
-    @recipe_foods = RecipeFood.where(recipe_id: params[:recipe_id])
+    @recipe_foods = RecipeFood.select(:food_id, "SUM(quantity) as quantity").where(recipe_id: params[:recipe_id]).group(:food_id)
     
     @inventory = Inventory.find(params[:inventory_id])
     @inventory_foods = InventoryFood.where(inventory_id: params[:inventory_id])
@@ -10,13 +10,13 @@ class ShoppingListController < ApplicationController
     @total_food_price = 0
     @recipe_foods.each do |recipe_food|
       if @inventory_foods.find_by(food_id: recipe_food.food_id)
-        inventory_food = @inventory_foods.find_by(food_id: recipe_food.food_id)
-        if inventory_food.quantity < @inventory_foods.find_by(food_id: recipe_food.food_id)
-          quantity_needed = recipe_food.quantity - inventory_food.quantity
+        inventory_food = @inventory_foods.where(food_id: recipe_food.food_id)
+        if inventory_food.sum(:quantity) < recipe_food.quantity
+          quantity_needed = recipe_food.quantity - inventory_food.sum(:quantity)
           recipe_food.quantity = quantity_needed
           @shopping_list_foods.push(recipe_food)
           @total_food_price += recipe_food.quantity * Food.find_by(id: recipe_food.food_id).price
-        end
+        end      
       else
         @shopping_list_foods.push(recipe_food)
         @total_food_price += recipe_food.quantity * Food.find_by(id: recipe_food.food_id).price
