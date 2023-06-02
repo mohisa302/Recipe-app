@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
+def index
+    @current_user = current_user
+    @inventories = current_user.inventories
+    @user = User.all
+    # Assign the first inventory if at least one inventory exists.
+    @inventory = @inventories.first if @inventories.any?
   end
 
   def show

@@ -41,10 +41,19 @@ img {
 }
 
 .recipe_inform {
-  padding: 2%;
+  padding: 4%;
   font-weight: bolder;
   display: flex;
   column-gap: 5rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  color: black;
 }
 
 .recipes_container {

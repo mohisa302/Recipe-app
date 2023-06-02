@@ -1,0 +1,30 @@
+<div>
+<div>
+<p>Amount of food to buy: <%= total_food_items %></p>
+<p>Total value of food needed: <%=total_food_price %></p>
+</div>
+<div>
+<%= link_to "Add Food Item", new_inventory_food_path(@inventory) %>
+<%= link_to "Back to Inventory List", inventories_path %>
+</div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @inventory_foods.group_by(&:food_id).each do |food_id, inventory_foods| %>
+      <% food = Food.find(food_id) %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= inventory_foods.sum(&:quantity) %> <%= food.measurement_unit %></td>
+        <td>$<%= inventory_foods.sum { |f| f.quantity * food.price } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

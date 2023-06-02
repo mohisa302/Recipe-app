@@ -9,9 +9,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     resources :recipes, only: [:index, :show, :new, :create, :update, :destroy]
   end 
-  resources :inventories, only: [:index, :new, :create, :show, :update, :destroy] 
-  resources :public_recipes, only: [:index]
-  
+  resources :inventories, only: [:index, :new, :create, :show, :update, :destroy]
   resources :public_recipes, only: [:index, :show]
+  get '/shopping_list/', to: 'shopping_list#make_list', as: 'shopping_list'
 
 end
