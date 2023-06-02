@@ -1,3 +1,68 @@
+.public_show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  width: 30%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+div h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+div p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+div .btn {
+  margin-top: 20px;
+}
+
+.recipe_container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 50vh;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.recipe_inform {
+  padding: 15px;
+}
+
+.public_inform p {
+  margin-bottom: 10px;
+}
+
+.btn a {
+  background-color: #4caf50;
+  color: #fff;
+  margin: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+}
 
 .new-recipe-form-container {
   display: flex;
