@@ -47,11 +47,40 @@ div .btn {
 }
 
 .recipe_inform {
-  padding: 15px;
+  font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300%;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
 }
 
 .public_inform p {
   margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
 }
 
 .btn a {
@@ -107,10 +136,6 @@ h1 {
   border-radius: 5px;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
-}
-
-.new-recipe-form input[type='checkbox'] {
-  margin-right: 10px;
 }
 
 .new-recipe-form input[type='submit'] {
@@ -258,24 +283,6 @@ button {
   padding: 0;
 }
 
-.recipe_inform {
-  padding: 4%;
-  font-weight: bolder;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 300%;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  padding: 10px;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}
-
 a:visited {
   color: black;
 }
@@ -295,16 +302,6 @@ a:visited {
 
 .recipe-items-details p {
   font-size: 16px;
-}
-
-.new-recipe-form input[type='text'],
-.new-recipe-form input[type='number'],
-.new-recipe-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
 }
 
 .new-recipe-form textarea {
@@ -358,13 +355,6 @@ a:visited {
   width: 100%;
   margin-top: 20px;
   border-collapse: collapse;
-}
-
-td,
-th {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
 .recipe-div table.ingredients-table th,
@@ -590,27 +580,7 @@ th {
   font-weight: bold;
 }
 
-tr:hover {
-  background-color: #f5f5f5;
-}
-
 table {
   border-collapse: collapse;
   width: 100%;
-}
-
-th,
-td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
-
-tr:hover {
-  background-color: #f5f5f5;
 }
