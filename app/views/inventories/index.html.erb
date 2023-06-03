@@ -1,0 +1,26 @@
+<h1>list of inventories for a given user </h1>
+ <div class="inventory_list">
+    <% @inventories.each do |inventory| %>
+      <div class="inventory-card">
+        <h3><%= inventory.name %></h3>
+        <p class="description"><%= inventory.description%></p>
+        <div class="button-container">
+          <div class="view-details-button">
+            <%= link_to "View Details", inventory_path(inventory), method: :get %>
+          </div>  
+          <% if can? :destroy, inventory %>
+            <div class="delete-button">
+              <%= button_to "Delete", inventory_path(inventory), method: :delete %>
+            </div>  
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <button class="page-btns">
+    <%= link_to 'Create New Inventories', new_inventory_path, style: 'color: black; text-decoration: none;' %>
+  </button>
+<div class="button_holder">
+  <button>Pagination</button>
+  <button><%= link_to 'Back', :back %></button>
+</div>

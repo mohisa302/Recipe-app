@@ -1,0 +1,22 @@
+<div class="ing-form-container">
+  <h1>Add new Ingredient</h1>
+  <% if @recipe.owner?(current_user) %>
+  <div class="ingredient_form">
+    <%= form_with url:
+    user_recipe_recipe_foods_path(user_id:@current_user.id,recipe_id:@recipe.id),
+    method: :post,scope: :new_recipe_food,local:true  do |form| %> 
+    <%= form.label :name, "Select food" %> 
+    <%= form.collection_select :food_id, Food.where(user_id:current_user.id),:id,:name %> 
+    <%= form.label :qty, "Quantity" %> 
+    <%= form.number_field :qty, min:0 %>
+    <%= form.submit%>
+    <% end %>
+  </div>
+  <p>If the food item is not in the list, please add it here
+    <%= link_to "Add Food Item", new_user_food_path(user_id:current_user.id) %>
+  </p>
+  </div>
+  <% else %>
+  <h2>Oops!.. you don't have permission modify this recipe</h2>
+  <% end %>
+  
