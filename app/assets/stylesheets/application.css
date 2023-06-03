@@ -451,6 +451,12 @@ a:visited {
   background-color: #0c7cd5;
 }
 
+.shopping_list select {
+  padding: 10px;
+  font-size: medium;
+  font-weight: bold;
+}
+
 .ing-form-container {
   max-width: 600px;
   margin: 0 auto;
@@ -634,10 +640,4 @@ table {
 .page-btn {
   color: white;
   cursor: pointer;
-}
-
-.shopping_list select {
-  padding: 10px;
-  font-size: medium;
-  font-weight: bold;
 }
