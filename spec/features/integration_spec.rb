@@ -1,9 +1,11 @@
+require 'securerandom'
+
 RSpec.describe 'Food Index', type: :feature do
   before :each do
     user = User.create!(
-      name: 'Tom',
-      email: 'ayomoses111@example.com',
-      password: '123456',
+      name: 'Test User',
+      email: "#{SecureRandom.hex}@example.com",
+      password: '1234567',
       confirmed_at: Time.now
     )
     visit new_user_session_path
