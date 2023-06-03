@@ -635,3 +635,9 @@ table {
   color: white;
   cursor: pointer;
 }
+
+.shopping_list select {
+  padding: 10px;
+  font-size: medium;
+  font-weight: bold;
+}

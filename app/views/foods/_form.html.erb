@@ -1,19 +1,19 @@
 <div class="new-recipe-form-container">
 <h1>Add new Food to Inventory</h1>
 <%= form_with(model: @inventory_food, url: inventory_foods_path, scope: :post, local: true) do |form| %>
-  <div class="new-recipe-form">
+  <div class="new-recipe-form shopping_list">
     <%= form.hidden_field :inventory_id, value: @inventory.id %>
-    <div>
+    <div class="shopping_list">
       <%= form.label :food_id %><br>
       <%= form.collection_select :food_id, @foods, :id, :name %>
     </div>
     <br>
     <div>
       <%= form.label :quantity %><br>
-      <%= form.number_field :quantity %>
+      <%= form.number_field :quantity, style:"margin-left: 1rem;" %>
     </div>
     <br>
-    <%= form.submit 'Submit', class: 'post_button' %>
+    <%= form.submit 'Submit', class: 'post_button shopping-btn' %>
   </div>
 <% end %>
 </div>

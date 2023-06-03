@@ -1,4 +1,5 @@
 require 'rails_helper'
+include Devise::Test::IntegrationHelpers
 
 RSpec.describe 'Foods', type: :request do
   before :each do
