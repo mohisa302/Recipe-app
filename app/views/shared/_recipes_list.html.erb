@@ -20,5 +20,6 @@
     <% end %> <% end %>
   </ul>
   <button class="page-btn">
-        <%= link_to 'Create New Recipes', new_user_recipe_path(user_id:user.id), style: 'color: black; text-decoration: none;' %>
+        <%= link_to 'Create New Recipes', new_user_recipe_path(user_id:user.id), style: 'color: white; text-decoration: none;' %>
     </button>
+    <a class="page-btn" href="<%= users_path %>"><button>Return to Home</button></a>

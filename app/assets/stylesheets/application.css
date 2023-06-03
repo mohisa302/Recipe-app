@@ -67,7 +67,7 @@ div .btn {
 
 a {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 th,
@@ -575,9 +575,38 @@ a:visited {
   background-color: #0c7cd5;
 }
 
+.selector {
+  padding: 5%;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.shopping_table {
+  font-size: medium;
+  font-weight: bold;
+}
+
 .custom-table {
   width: 100%;
   border-collapse: collapse;
+}
+
+.shopping_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.shopping-btn {
+  padding: 3%;
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
 }
 
 .scope-col {
@@ -587,4 +616,22 @@ a:visited {
 table {
   border-collapse: collapse;
   width: 100%;
+}
+
+.recipes-list-item {
+  padding: 20%;
+  display: flex;
+  flex-direction: column;
+  width: 200%;
+  margin-bottom: 2rem;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: black;
+}
+
+.page-btn {
+  color: white;
+  cursor: pointer;
 }
