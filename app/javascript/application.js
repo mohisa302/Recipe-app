@@ -2,7 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-document.addEventListener("DOMContentLoaded", function() {
+// document.addEventListener("DOMContentLoaded", function() {
   var modal = document.getElementById("myModal");
   var openBtn = document.getElementById("openModalButton")
   var closeBtn = document.getElementsByClassName("close")[0];
@@ -29,5 +29,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Open the modal by default
   openBtn.onclick = openModal;
-});
+// });
 

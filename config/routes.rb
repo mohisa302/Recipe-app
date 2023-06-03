@@ -17,10 +17,10 @@ Rails.application.routes.draw do
     resources :recipes, only: [:index, :show, :new, :create, :update, :destroy]
   end 
   resources :inventories, only: [:index, :new, :create, :show, :update, :destroy] do
-    resources :inventory_foods, only: [:create, :delete]
+    resources :inventory_foods, only: [:create, :delete, :new]
   end
 
-  resources :inventory_foods, only: [:create, :destroy]
+  resources :inventory_foods, only: [:create, :destroy, :new]
 
   get 'shopping_list/index'
 

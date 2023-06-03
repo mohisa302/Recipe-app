@@ -1,5 +1,7 @@
 <h1 class="food-heading"><%= @inventory.name %></h1>
-<button id="openModalButton" class="add-food-btn">Add Food</button>
+<button class="class="add-food-btn"">
+  <%= link_to 'Add Food', new_inventory_inventory_food_path(@inventory), style: 'color: black; text-decoration: none;' %>
+</button>
 <%= render 'shared/modal' %>
 <hr/>
 <table>
