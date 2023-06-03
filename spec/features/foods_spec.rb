@@ -52,10 +52,10 @@ RSpec.describe 'Foods', type: :request do
   describe 'POST /users/:user_id/foods/' do
     it 'creates a new food for user' do
       post user_session_path, params: { user: { email: user.email, password: user.password } }
-      expect {
+      expect do
         post user_foods_path(user_id: user.id),
              params: { food: { name: 'wurst', measurement_unit: 'pieces', price: 1.0, quantity: 5, user_id: user.id } }
-      }.to change { user.foods.count }.by(1)
+      end.to change { user.foods.count }.by(1)
       delete destroy_user_session_path
     end
   end
@@ -63,10 +63,10 @@ RSpec.describe 'Foods', type: :request do
   describe 'DELETE /users/:user_id/foods/:food_id' do
     it 'deletes a food for user' do
       post user_session_path, params: { user: { email: user.email, password: user.password } }
-      food = FactoryBot.create(:food, user: user)
-      expect {
+      food = FactoryBot.create(:food, user:)
+      expect do
         delete user_food_path(user_id: user.id, id: food.id)
-      }.to change { user.foods.count }.by(-1)
+      end.to change { user.foods.count }.by(-1)
       delete destroy_user_session_path
     end
   end

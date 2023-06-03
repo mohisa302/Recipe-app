@@ -146,7 +146,7 @@ rails db:seed RAILS_ENV=test
 - Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/hakichris)
 
-👤**Chukwuemeka Ochuba**
+👤**Ayo Moses**
 
 - GitHub: [@AyoMoses1](https://github.com/AyoMoses1)
 - Twitter: [@AyoMoses](https://twitter.com/Ayo_Moses1)
