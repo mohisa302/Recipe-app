@@ -24,9 +24,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 <a name="about-project"></a>
+# 📖 Recipe <a name="about-project"></a>
 
----
+## If making it to the Guinness book of world records sounds exciting to you, then The Recipe app provides a comprehensive solution for managing your secret recipes, ingredients, and inventory. You can save ingredients and track what you have on hand, create recipes, and generate a shopping list based on what you need for a recipe and even track your cooking time. Additionally, the app allows you to make your recipes public, facilitating easy sharing with others who may find them useful in their own cooking endeavors
 
   <ul>
     <li>View Recipes for the logged in user </li>
@@ -136,9 +136,9 @@ rails db:seed RAILS_ENV=test
 
 👤 **Mohi**
 
-- GitHub: [@rachelwebdev](https://github.com/Rachelwebdev)
-- Twitter:[@rachelisaac13](https://twitter.com/Rachelisaac13)
-- LinkedIn: [Rachel Isaac](https://www.linkedin.com/in/rachelisaac13/)
+- GitHub: [@mohisa302](https://github.com/mohisa302)
+- Twitter: [@Kholochelam](https://twitter.com/Kholochelam)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/mohadese-sadeghi-692551199/)
 
 👤 **Christian Hakizimana**
 

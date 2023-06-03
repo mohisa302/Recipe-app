@@ -624,7 +624,7 @@ table {
   width: 100%;
 }
 
-.recipes-list-item {
+.recipes-list-items {
   padding: 20%;
   display: flex;
   flex-direction: column;
@@ -637,7 +637,7 @@ table {
   color: black;
 }
 
-.page-btn {
+.page-btns {
   color: white;
   cursor: pointer;
 }

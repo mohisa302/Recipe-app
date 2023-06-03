@@ -4,7 +4,7 @@
   <% else %>
   <ul class="recipes-list">
     <% recipes.each do |recipe|%>
-    <li class="recipes-list-item">
+    <li class="recipes-list-items">
       <%= link_to user_recipe_path(user_id: user.id,id: recipe.id) do %>
       <div class="recipe-items-details">
           <h2><%= recipe.name%></h2>
@@ -19,7 +19,7 @@
     </li>
     <% end %> <% end %>
   </ul>
-  <button class="page-btn">
+  <button class="page-btns">
         <%= link_to 'Create New Recipes', new_user_recipe_path(user_id:user.id), style: 'color: white; text-decoration: none;' %>
     </button>
-    <a class="page-btn" href="<%= users_path %>"><button>Return to Home</button></a>
+    <a class="page-btns" href="<%= users_path %>"><button>Return to Home</button></a>
