@@ -1,63 +1,73 @@
 require 'rails_helper'
-include Devise::Test::IntegrationHelpers
 
 RSpec.describe 'Foods', type: :request do
-  before :each do
-    @user = User.first
-    sign_in @user
-  end
-
-  after :each do
-    sign_out @user
-  end
+  let(:user) { FactoryBot.create(:user) }
 
   describe 'GET /users/:user_id/foods' do
     it 'is valid response' do
-      get user_foods_path(user_id: @user.id)
+      post user_session_path, params: { user: { email: user.email, password: user.password } }
+      get user_foods_path(user_id: user.id)
       expect(response).to have_http_status(200)
+      delete destroy_user_session_path
     end
 
     it 'renders correct template' do
-      get user_foods_path(user_id: @user.id)
+      post user_session_path, params: { user: { email: user.email, password: user.password } }
+      get user_foods_path(user_id: user.id)
       expect(response).to render_template 'foods/index'
+      delete destroy_user_session_path
     end
 
     it 'response body has placeholder text' do
-      get user_foods_path(user_id: @user.id)
+      post user_session_path, params: { user: { email: user.email, password: user.password } }
+      get user_foods_path(user_id: user.id)
       expect(response.body).to include('Add food')
+      delete destroy_user_session_path
     end
   end
 
   describe 'GET /users/:user_id/foods/new' do
     it 'is valid response' do
-      get new_user_food_path(user_id: @user.id)
+      post user_session_path, params: { user: { email: user.email, password: user.password } }
+      get new_user_food_path(user_id: user.id)
       expect(response).to have_http_status(200)
+      delete destroy_user_session_path
     end
 
     it 'renders correct template' do
-      get new_user_food_path(user_id: @user.id)
+      post user_session_path, params: { user: { email: user.email, password: user.password } }
+      get new_user_food_path(user_id: user.id)
       expect(response).to render_template 'foods/new'
+      delete destroy_user_session_path
     end
 
     it 'response body has placeholder text' do
-      get new_user_food_path(user_id: @user.id)
+      post user_session_path, params: { user: { email: user.email, password: user.password } }
+      get new_user_food_path(user_id: user.id)
       expect(response.body).to include('Add a new food')
+      delete destroy_user_session_path
     end
   end
 
   describe 'POST /users/:user_id/foods/' do
     it 'creates a new food for user' do
-      post user_foods_path(user_id: @user.id),
-           params: { food: { name: 'wurst', measurement_unit: 'pieces', price: 1.0, quantity: 5, user_id: @user.id } }
-      expect(@user.foods.count).to eql 4
+      post user_session_path, params: { user: { email: user.email, password: user.password } }
+      expect {
+        post user_foods_path(user_id: user.id),
+             params: { food: { name: 'wurst', measurement_unit: 'pieces', price: 1.0, quantity: 5, user_id: user.id } }
+      }.to change { user.foods.count }.by(1)
+      delete destroy_user_session_path
     end
   end
 
   describe 'DELETE /users/:user_id/foods/:food_id' do
     it 'deletes a food for user' do
-      food = @user.foods.last
-      delete user_food_path(user_id: @user.id, id: food.id)
-      expect(@user.foods.count).to eql 2
+      post user_session_path, params: { user: { email: user.email, password: user.password } }
+      food = FactoryBot.create(:food, user: user)
+      expect {
+        delete user_food_path(user_id: user.id, id: food.id)
+      }.to change { user.foods.count }.by(-1)
+      delete destroy_user_session_path
     end
   end
 end
