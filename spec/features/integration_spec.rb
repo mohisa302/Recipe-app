@@ -2,7 +2,7 @@ RSpec.describe 'Food Index', type: :feature do
   before :each do
     user = User.create!(
       name: 'Tom',
-      email: 'tom@example.com',
+      email: 'ayomoses111@example.com',
       password: '123456',
       confirmed_at: Time.now
     )
