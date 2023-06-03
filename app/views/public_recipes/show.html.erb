@@ -1,9 +1,11 @@
+ <div class="public_information">
  <div class="public_show">
  <div class="element">
- <h3>Name: <%= @recipe.name %></h3>
- <p> Descrioption: <%= @recipe.description %></p>
- <p> Cooking time: <%= @recipe.cooking_time %></p>
-  <p> Preparation time: <%= @recipe.preparation_time %></p>
+    <h3>Name: <%= @recipe.name %></h3>
+    <p> Descrioption: <%= @recipe.description %></p>
+    <p> Cooking time: <%= @recipe.cooking_time %></p>
+    <p> Preparation time: <%= @recipe.preparation_time %></p>
   </div>
+<a href="<%= users_path %>"><button>Return to Home</button></a>
   </div>
-<a href="<%= users_path %>"><button>Return to Users</button></a>
+  <div>

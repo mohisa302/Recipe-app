@@ -1,24 +1,33 @@
 require 'rails_helper'
 
-RSpec.describe RecipeFood, type: :model do
+RSpec.describe Food, type: :model do
   subject do
-    RecipeFood.new(
-      quantity: 5,
-      recipe: Recipe.first,
-      food: Food.first
-    )
-  end
-  before { subject.save }
-  describe 'check recipe_food validity' do
-    it 'is valid with valid attributes' do
-      expect(subject).to be_valid
-    end
+    @user = User.create(name: 'Jane Doe')
+    @food = Food.create(name: 'flour', measurement_unit: 'grams', price: 2, quantity: 15, user_id: @user.id)
   end
 
-  describe 'check recipe_food invalidity' do
-    it 'is invalid with valid quantity negative' do
-      subject.quantity = -5
-      expect(subject).to_not be_valid
-    end
+  before { subject.save }
+
+  it 'Name should be present' do
+    subject.name = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'Name should have valid value' do
+    expect(subject.name).to eql 'flour'
+  end
+
+  it 'Measurement unit should have a valid value' do
+    expect(subject.measurement_unit).to eql 'grams'
+  end
+
+  it 'Price should be present' do
+    subject.price = -2
+    expect(subject).to_not be_valid
+  end
+
+  it 'Quantity should be present' do
+    subject.quantity = nil
+    expect(subject).to_not be_valid
   end
 end
