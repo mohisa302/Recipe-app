@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe 'InventoriesController', type: :request do
   let(:user) { FactoryBot.create(:user) }
 
