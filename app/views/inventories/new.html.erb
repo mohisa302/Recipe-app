@@ -1,0 +1,13 @@
+<div class="new-recipe-form-container">
+  <h1>Add new Inventory</h1>
+  <div class="new-recipe-form">
+    <%= form_with url: inventories_path(user_id:@user.id),method: :post, scope: :new_inventory, local:true do |f| %>
+      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.label :name, "Inventory Name" %>
+      <%= f.text_field :name, require:true %>
+      <%= f.label :description, "Description" %>
+      <%= f.text_field :description, require:true %>
+      <%= f.submit%>
+    <% end %> 
+  </div>
+</div>

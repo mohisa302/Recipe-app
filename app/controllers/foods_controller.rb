@@ -1,9 +1,7 @@
 class FoodsController < ApplicationController
   # before_action :set_recipe, only: %i[show edit update destroy]
   before_action :authenticate_user!
-
   # after implementing devise we have to change User.first.id to current_user.id.
-
   def index
     @all_foods = Food.where(user_id: current_user.id)
   end
@@ -15,7 +13,6 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     @food.user_id = current_user.id
-
     if @food.save
       redirect_to user_foods_path, notice: 'Food was successfully created.'
     else

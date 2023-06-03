@@ -1,2 +1,30 @@
-<h1> Name: <%= @inventory.name %></h1>
-<p> <%= @inventory.description %></p>
+<h1 class="food-heading"><%= @inventory.name %></h1>
+<button class="class="add-food-btn"">
+  <%= link_to 'Add Food', new_inventory_inventory_food_path(@inventory), style: 'color: black; text-decoration: none;' %>
+</button>
+<%= render 'shared/modal' %>
+<hr/>
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @inventory_foods.each do |inventory_food| %>
+      <tr>
+        <td><%= inventory_food.food.name %></td>
+        <td><%= inventory_food.quantity %></td>
+        <td><button>
+          <%= link_to 'Remove', inventory_food_path(inventory_food), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+          } %>
+        </button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<a href="<%= users_path %>"><button>Return to Home</button></a>
