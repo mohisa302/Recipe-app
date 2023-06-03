@@ -47,7 +47,6 @@ class RecipesController < ApplicationController
     if @recipe.destroy
       redirect_to user_recipes_path(params[:user_id]),
                   notice: 'recipe deleted successfully'
-
     else
       flash[:alert] = 'error deleting recipe'
     end

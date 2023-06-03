@@ -93,7 +93,8 @@ tr:hover {
   text-decoration: none;
 }
 
-.new-recipe-form-container {
+.new-recipe-form-container,
+.new-inventory-form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
