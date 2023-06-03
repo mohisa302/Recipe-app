@@ -15,10 +15,8 @@ class InventoriesController < ApplicationController
     inventory = Inventory.new(inventory_params)
     if inventory.save
       flash[:success] = 'Inventory created successfully'
-      # render json: inventory, status: :created
     else
       flash[:error] = inventory.errors.full_messages.join('. ')
-      # render json: inventory.errors, status: :unprocessable_entity
     end
     redirect_to inventories_path
   end
