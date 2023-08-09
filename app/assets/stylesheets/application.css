@@ -1,3 +1,8 @@
+
+body {
+ background-color: #ecd9d8;
+}
+
 .public_show {
   display: flex;
   flex-direction: column;
@@ -670,3 +675,5 @@ table {
   color: white;
   cursor: pointer;
 }
+
+
